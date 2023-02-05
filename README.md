@@ -3,7 +3,7 @@
 University of Mumbai Java Mini Project<br><br>
 <b>Credits:</b><br>
 [@varospaxo](https://github.com/varospaxo)<br>
-Akash Kolakkal<br>
+[@akashkolakkal](https://github.com/akashkolakkal)<br>
 Atharva Gandhi<br>
 Swayam Dhanawade<br><br>
 

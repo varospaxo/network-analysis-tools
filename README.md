@@ -16,7 +16,7 @@ Moreover, as Network tools are also used by hackers, users need to know how they
 <br><H2><B>Flowchart of the interface</H2></B><br>
 ![image](https://user-images.githubusercontent.com/64273563/209560459-7dea215d-9fb5-4ec6-a944-64b4ab7e5eb5.png)
 
-<br><H2><B>Frontend</H2></B>
+<br><H2><B>GUI Framework</H2></B>
 &#9679; JAVA Swing GUI builder was used to develop the elements in the project.<br>
 &#9679; Swing GUI builder has a huge arsenal of elements that could be used to create a JAVA application.<br>
 &#9679; Elements like program window, input fields, buttons, labels, output field were made using JAVA Swing.<br>

@@ -4,8 +4,8 @@ University of Mumbai Java Mini Project<br><br>
 <b>Credits:</b><br>
 [@varospaxo](https://github.com/varospaxo)<br>
 [@akashkolakkal](https://github.com/akashkolakkal)<br>
-Atharva Gandhi<br>
-Swayam Dhanawade<br><br>
+[@swayamdhanawade](https://github.com/SwayamDhanawade)<br>
+[@grephy](https://github.com/Grephy)<br>
 
 ![image](https://user-images.githubusercontent.com/64273563/209560783-31186eeb-456e-47e2-9643-1542788d603b.png)
 

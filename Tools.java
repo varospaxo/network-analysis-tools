@@ -208,41 +208,51 @@ public class Tools {
 		Default_Gateway_btn.setBackground(new Color(40, 53, 147));
 		Default_Gateway_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		    	final String DEFAULT_GATEWAY = "Default Gateway";
-		        if (Desktop.isDesktopSupported()) {
-		            try {
-		                Process process = Runtime.getRuntime().exec("ipconfig");
-
-		                try (BufferedReader bufferedReader = new BufferedReader(
-		                        new InputStreamReader(process.getInputStream()))) {
-
-		                    String line;
-		                    while ((line = bufferedReader.readLine()) != null) {
-		                        if (line.trim().startsWith(DEFAULT_GATEWAY)) {
-		                            String ipAddress = line.substring(line.indexOf(":")+2).trim(),
-		                                    routerURL = String.format("http://%s", ipAddress);
-
-		                            // opening router setup in browser
-		                            Desktop.getDesktop().browse(new URI(routerURL));
-		                            outputArea.setText("");
-		                            outputArea.append("Default Gateway: "+ipAddress);
-			        				outputArea.append("\n");
-		                        }
-		                        
-
-		                        System.out.println(line);
-		                    }
-		                }
-		            } catch (Exception e1) {
-		                e1.printStackTrace();
-		            }
-		        }
+				final String DEFAULT_GATEWAY = "Default Gateway";
+				if (Desktop.isDesktopSupported()) {
+					try {
+						Process process = Runtime.getRuntime().exec("ipconfig");
+		
+						try (BufferedReader bufferedReader = new BufferedReader(
+								new InputStreamReader(process.getInputStream()))) {
+		
+							String line;
+							while ((line = bufferedReader.readLine()) != null) {
+								if (line.trim().startsWith(DEFAULT_GATEWAY)) {
+									String ipAddress = line.substring(line.indexOf(":") + 1).trim();
+		
+									// Ensure the IP address is not empty and valid
+									if (!ipAddress.isEmpty() && ipAddress.matches("\\d+\\.\\d+\\.\\d+\\.\\d+")) {
+										String routerURL = String.format("http://%s", ipAddress);
+		
+										try {
+											// Opening router setup in browser
+											Desktop.getDesktop().browse(new URI(routerURL));
+											outputArea.setText("");
+											outputArea.append("Default Gateway: " + ipAddress);
+											outputArea.append("\n");
+										} catch (URISyntaxException uriException) {
+											uriException.printStackTrace();
+										}
+									} else {
+										outputArea.setText("Invalid IP address");
+									}
+								}
+		
+								System.out.println(line);
+							}
+						}
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}
 			}
 		});
 		Default_Gateway_btn.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		Default_Gateway_btn.setBounds(750, 95, 298, 33);
 		frmTools.getContentPane().add(Default_Gateway_btn);
 		frmTools.setVisible(true);
+		
 		
 		//LAN Scan Button//
 		JButton LAN_Scan = new JButton("LAN Scan");
